@@ -49,6 +49,13 @@ export class AlbumsServiceService {
     }));
   }
 
+  updateAlbum(id, data) {
+    return this.db.list('/albums').update(id, data);
+  }
+  removeAlbum(id: string) {
+    console.log(id);
+    this.db.list('/albums').remove(id);
+  }
   getPhoto(): Observable<any[]> {
     this.photoList = this.db.list('/photos');
     return this.photoList.snapshotChanges().pipe(map(actions => {

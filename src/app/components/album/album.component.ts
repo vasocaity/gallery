@@ -16,26 +16,29 @@ export class AlbumComponent implements OnInit {
   ngOnInit() {
     this.albumForm = this.fb.group({
       name: null,
-      photoFile: null,
       desriction: null
     });
     this.getAlbum();
   }
 
   addAlbum() {
-    this.db.list('/albums').push(this.albumForm.value);
+   // this.db.list('/albums').push(this.albumForm.value);
+   // this.service.updateAlbum('-LKAmobb1Lz-uO8DUTbS', this.albumForm.value);
+   this.service.removeAlbum('-LKAmobb1Lz-uO8DUTbS');
    console.log(this.albumForm.value);
   }
 
   getAlbum() {
     this.service.getAlbumByName('untitled').subscribe(
       (item) => {
-        this.albums = item;
+       // this.albums = item;
         console.log(item);
       }
     );
     this.service.getAlbumById('-LKAmobb1Lz-uO8DUTbS').subscribe(
-      (res) => console.log(res)
+      (res) => {
+        this.albums = res;
+      }
     );
   }
 
