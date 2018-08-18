@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { AlbumsServiceService } from '../../services/albums-service.service';
 
 @Component({
   selector: 'app-photos',
@@ -9,19 +10,18 @@ import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 })
 export class PhotosComponent implements OnInit {
   photoForm: FormGroup;
-  constructor(private fb: FormBuilder, private db: AngularFireDatabase) { }
+  constructor(private fb: FormBuilder, private service: AlbumsServiceService) { }
 
   ngOnInit() {
     this.photoForm = this.fb.group({
-      name: null,
-      photoFile: null,
+      photoFile: [],
       desriction: null
     });
   }
 
   addPhoto() {
-    this.db.list('/albums').push(this.photoForm.value);
-   console.log(this.photoForm.value);
+    this.service.addPhoto(this.photoForm.value);
+   console.log(this.photoForm.get('photoFile').value);
   }
 
 }

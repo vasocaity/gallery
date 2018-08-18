@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireList, AngularFireDatabase } from 'angularfire2/database';
 import { map } from 'rxjs/operators';
+import { AlbumsServiceService } from '../../services/albums-service.service';
 
 @Component({
   selector: 'app-photo-list',
@@ -10,16 +11,11 @@ import { map } from 'rxjs/operators';
 export class PhotoListComponent implements OnInit {
   photoList: AngularFireList<any>;
   photo: any[];
-  constructor(db: AngularFireDatabase) {
+  constructor(db: AngularFireDatabase, private service: AlbumsServiceService) {
     this.photoList = db.list('albums');
   }
   ngOnInit() {
-    this.photoList.snapshotChanges().pipe(map(actions => {
-      return actions.map(action => (
-        { key: action.key, value: action.payload.val() }
-      )
-      );
-    })).subscribe(items => {
+    this.service.getAlbums().subscribe(items => {
       this.photo = items;
     });
   }

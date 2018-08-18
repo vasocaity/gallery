@@ -15,10 +15,12 @@ import { AngularFireModule } from 'angularfire2';
 import { configFirebase } from './../environments/firebase.config';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { PhotoListComponent } from './components/photo-list/photo-list.component';
+import { AlbumComponent } from './components/album/album.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'photos', component: PhotosComponent },
+  { path: 'ablums', component: AlbumComponent },
   { path: 'blog', component: BlogComponent }
 ];
 
@@ -29,7 +31,8 @@ const routes: Routes = [
     HomeComponent,
     PhotosComponent,
     BlogComponent,
-    PhotoListComponent
+    PhotoListComponent,
+    AlbumComponent
   ],
   imports: [
     BrowserModule,
