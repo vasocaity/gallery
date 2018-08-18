@@ -1,3 +1,14 @@
-<p>
-  photo-list works!
-</p>
+<table class='table'>
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of photo">
+      <td>{{data.value.name}}</td>
+      <td>{{data.value.desriction}}</td>
+    </tr>
+  </tbody>
+</table>
