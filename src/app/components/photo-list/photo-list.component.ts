@@ -15,7 +15,7 @@ export class PhotoListComponent implements OnInit {
     this.photoList = db.list('albums');
   }
   ngOnInit() {
-    this.service.getAlbums().subscribe(items => {
+    this.service.getPhoto().subscribe(items => {
       this.photo = items;
     });
   }

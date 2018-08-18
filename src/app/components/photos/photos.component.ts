@@ -21,7 +21,6 @@ export class PhotosComponent implements OnInit {
 
   addPhoto() {
     this.service.addPhoto(this.photoForm.value);
-   console.log(this.photoForm.get('photoFile').value);
   }
 
 }
