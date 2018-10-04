@@ -1,9 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage('Example') {
+        stage('npm install') {
             steps { 
-                echo 'Hello World'
+                sh 'npm install'
+            }
+        }
+        stage('unit test') {
+            steps { 
+                sh 'ng test'
             }
         }
     }
