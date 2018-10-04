@@ -1,12 +1,6 @@
 node {
-    stage("NPM install") {
-        steps {
-        sh "npm install"
-        }
-    }
-    stage("Unit test") {
-        steps {
-        sh "ng test"
-        }
-    }
+    env.NODEJS_HOME = "${tool 'Node 6.x'}"
+    // on linux / mac
+    env.PATH="${env.NODEJS_HOME}/bin:${env.PATH}"
+    sh 'npm --version'
 }
