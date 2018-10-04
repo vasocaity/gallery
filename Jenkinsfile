@@ -1,10 +1,12 @@
-stage('npm install') {
-    steps { 
-        sh 'npm install'
+node {
+    stage("NPM install") {
+        steps {
+        sh "npm install"
+        }
     }
-    stage('unit test') {
-        steps { 
-            sh 'ng test'
+    stage("Unit test") {
+        steps {
+        sh "ng test"
         }
     }
 }
