@@ -1,18 +1,10 @@
-pipeline {
-    agent any
-    environment {
-        CI = 'true' 
+stage('npm install') {
+    steps { 
+        sh 'npm install'
     }
-    stages {
-        // stage('npm install') {
-        //     steps { 
-        //         sh '/usr/local/bin/npm install'
-        //     }
-        // }
-        stage('unit test') {
-            steps { 
-                sh 'ng test'
-            }
+    stage('unit test') {
+        steps { 
+            sh 'ng test'
         }
     }
 }
