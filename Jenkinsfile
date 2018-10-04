@@ -1,8 +1,8 @@
 node {
-    stage("stage 1") {
-        echo "Hello"
+    stage("NPM install") {
+        sh "npm install"
     }
-    stage("stage 2") {
-        echo "World!"
+    stage("Unit test") {
+        sh "ng test"
     }
 }
