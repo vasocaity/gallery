@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('npm install') {
             steps { 
-                sh 'npm install'
+                sh '/usr/local/bin/npm install'
             }
         }
         stage('unit test') {
