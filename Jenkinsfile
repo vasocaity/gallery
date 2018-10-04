@@ -4,11 +4,11 @@ pipeline {
         CI = 'true' 
     }
     stages {
-        stage('npm install') {
-            steps { 
-                sh '/usr/local/bin/npm install'
-            }
-        }
+        // stage('npm install') {
+        //     steps { 
+        //         sh '/usr/local/bin/npm install'
+        //     }
+        // }
         stage('unit test') {
             steps { 
                 sh 'ng test'
