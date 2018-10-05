@@ -7,7 +7,10 @@ import { HomeComponent } from './components/home/home.component';
 import { PhotosComponent } from './components/photos/photos.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { RouterModule, Routes } from '@angular/router';
-import { MatGridListModule, MatSelectModule, MatInputModule, MatCheckboxModule, MatListModule, MatButtonModule } from '@angular/material';
+import {
+  MatGridListModule, MatSelectModule, MatInputModule, MatCheckboxModule, MatListModule,
+  MatButtonModule, MatMenuModule
+} from '@angular/material';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import Firebase
@@ -38,6 +41,7 @@ const routes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
+    MatMenuModule,
     MatGridListModule,
     MatFormFieldModule,
     MatInputModule,
